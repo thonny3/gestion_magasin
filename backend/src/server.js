@@ -12,6 +12,9 @@ const bonsSortieRoutes = require('./routes/bonsSortie');
 const distributionsRoutes = require('./routes/distributions');
 const stockRoutes = require('./routes/stock');
 const paiementsRoutes = require('./routes/paiements');
+const ordresMissionRoutes = require('./routes/ordresMission');
+const pvReceptionRoutes = require('./routes/pvReception');
+const userManagementRoutes = require('./routes/userManagement');
 const { authenticate } = require('./middleware/auth');
 
 const app = express();
@@ -32,6 +35,9 @@ app.use('/api/bons-sortie', bonsSortieRoutes);
 app.use('/api/distributions', distributionsRoutes);
 app.use('/api/stock', stockRoutes);
 app.use('/api/paiements', paiementsRoutes);
+app.use('/api/ordres-mission', ordresMissionRoutes);
+app.use('/api/pv-reception', pvReceptionRoutes);
+app.use('/api/user-management', userManagementRoutes);
 
 // Example protected route
 app.get('/api/me', authenticate, (req, res) => {
