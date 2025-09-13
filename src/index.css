@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animations personnalisées */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Classes d'animation */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Styles pour les inputs avec focus amélioré */
+.input-focus {
+  @apply transition-all duration-200;
+}
+
+.input-focus:focus {
+  @apply ring-2 ring-emerald-600 ring-opacity-50 border-emerald-600;
+}
+
+/* Styles pour les boutons avec hover amélioré */
+.btn-primary {
+  @apply bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-lg;
+}
+
+.btn-primary:disabled {
+  @apply bg-gray-400 cursor-not-allowed transform-none hover:scale-100 hover:shadow-none;
+}
+
+/* Styles pour les cartes avec ombre */
+.card-shadow {
+  @apply shadow-xl hover:shadow-2xl transition-shadow duration-300;
+}
+
+/* Styles pour les icônes avec animation */
+.icon-hover {
+  @apply transition-all duration-200 hover:scale-110;
+}
+
+/* Styles pour les messages d'erreur */
+.error-message {
+  @apply text-red-600 text-sm mt-1 flex items-center;
+}
+
+.error-message::before {
+  content: '';
+  @apply w-1 h-1 bg-red-600 rounded-full mr-2;
+}
+
+/* Styles pour les inputs avec validation */
+.input-valid {
+  @apply border-green-300 bg-green-50;
+}
+
+.input-invalid {
+  @apply border-red-300 bg-red-50;
+}
+
+/* Styles pour le loader personnalisé */
+.loader-dots {
+  @apply inline-flex space-x-1;
+}
+
+.loader-dots > div {
+  @apply w-2 h-2 bg-current rounded-full;
+  animation: pulse 1.4s ease-in-out infinite both;
+}
+
+.loader-dots > div:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loader-dots > div:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+/* Styles pour les gradients personnalisés */
+.gradient-primary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #f8fafc 0%, #d1fae5 100%);
+}
+
+/* Styles pour les bordures arrondies personnalisées */
+.rounded-custom {
+  border-radius: 1rem;
+}
+
+/* Styles pour les transitions fluides */
+.transition-smooth {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Styles pour les effets de glassmorphism */
+.glass {
+  @apply bg-white bg-opacity-20 backdrop-blur-lg border border-white border-opacity-30;
+}
+
+/* Styles pour les animations de chargement */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
